@@ -36,10 +36,6 @@ export default function DataTable({ columns, data, pagination, totalRecords, onP
 			const newState = typeof updater === 'function' ? updater(pagination) : updater;
 			onPaginationChange(newState);
 		},
-		state: {
-			columnFilters,
-			columnVisibility,
-		},
 	});
 
 	return (

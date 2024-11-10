@@ -11,7 +11,6 @@ import {
   } from "@/components/ui/dropdown-menu"
 import { MoreHorizontal } from "lucide-react";
 
-// Define the shape of the data without TypeScript types
 export const columns = [
 //   {
 //     accessorKey: "pk",

@@ -72,7 +72,6 @@ const HolidaysListing = () => {
 		
 		setErrors({ state: false, name: false, date: false });
 
-		// Check for validation errors
 		const newErrors = {
 			state: !state,
 			name: !name,
@@ -80,7 +79,6 @@ const HolidaysListing = () => {
 		};
 		setErrors(newErrors);
 
-		// If there are validation errors, do not proceed
 		if (newErrors.state || newErrors.name || newErrors.date) {
 			return;
 		}
@@ -104,8 +102,6 @@ const HolidaysListing = () => {
 				}
 			});
 			if (response.status === 200) {
-				console.log(response, "resp___");
-				// Optionally, clear the fields after submission
 				setName("");
 				setState("");
 				setDate(null);
