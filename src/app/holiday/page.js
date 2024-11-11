@@ -46,6 +46,7 @@ const HolidaysListing = () => {
 	const [date, setDate] = useState()
 	const [state, setState] = useState("")
 	const [errors, setErrors] = useState({ state: false, name: false, date: false });
+	const [isDialogOpen, setIsDialogOpen] = useState(false);
 
 	const fetchPublicHolidays = async () => {
 		try {
@@ -105,6 +106,7 @@ const HolidaysListing = () => {
 				setName("");
 				setState("");
 				setDate(null);
+				setIsDialogOpen(false);
 			}
 		} catch (error) {
 			console.error("Error adding public holiday:", error);
@@ -114,9 +116,9 @@ const HolidaysListing = () => {
 	return (
 		<div className="container mx-auto py-10">
 			<div>
-				<Dialog>
+				<Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
 					<DialogTrigger className="mb-3" asChild>
-						<Button variant="secondary">Add Holiday</Button>
+						<Button variant="secondary" onClick={() => setIsDialogOpen(true)}>Add Holiday</Button>
 					</DialogTrigger>
 					<DialogContent className="sm:max-w-[425px]">
 						<DialogHeader>
@@ -192,7 +194,7 @@ const HolidaysListing = () => {
 							</div>
 						</div>
 						<DialogFooter>
-							<Button type="submit" variant="secondary">Cancel</Button>
+							<Button type="submit" variant="secondary"  onClick={() => setIsDialogOpen(false)}>Cancel</Button>
 							<Button type="submit" onClick={handleSubmit}>Submit</Button>
 						</DialogFooter>
 					</DialogContent>
