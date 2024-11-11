@@ -12,26 +12,14 @@ import {
 import { MoreHorizontal } from "lucide-react";
 
 export const columns = [
-//   {
-//     accessorKey: "pk",
-//     header: "ID",
-//   },
   {
     accessorKey: "name",
     header: "Holiday Name",
   },
-//   {
-//     accessorKey: "stateCode",
-//     header: "State Code",
-//   },
   {
     accessorKey: "stateName",
     header: "State",
   },
-//   {
-//     accessorKey: "stateCountry",
-//     header: "Country",
-//   },
   
   {
     accessorKey: "date",

@@ -123,9 +123,8 @@ const HolidaysListing = () => {
 					<DialogContent className="sm:max-w-[425px]">
 						<DialogHeader>
 							<DialogTitle>Create Public Holiday</DialogTitle>
-							{/* <DialogDescription>
-								Make changes to your profile here. Click save when you're done.
-							</DialogDescription> */}
+							<DialogDescription>
+							</DialogDescription>
 						</DialogHeader>
 						<div className="grid gap-4 py-4">
 
