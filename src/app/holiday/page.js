@@ -104,11 +104,12 @@ const HolidaysListing = () => {
 					'Authorization': 'Token 898513d2a7108d2c662a878720391aa00bc704db',
 				}
 			});
-			if (response.status === 200) {
+			console.log(response,"response")
+			if (response.status === 201) {
+				setIsDialogOpen(false);
 				setName("");
 				setState("");
 				setDate(null);
-				setIsDialogOpen(false);
 			}
 		} catch (error) {
 			if (error.response) {
