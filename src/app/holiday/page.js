@@ -51,7 +51,8 @@ const HolidaysListing = () => {
 	const fetchPublicHolidays = async () => {
 		console.log(pagination.pageIndex,'pagination.pageIndex')
 		try {
-			const Path = `https://secret-stream-29335.herokuapp.com/api/v1/web/attendance-management/public-holidays/?length=${pagination.pageSize}&start=${pagination.pageIndex}`;
+			const start = pagination.pageSize * pagination.pageIndex;
+			const Path = `https://secret-stream-29335.herokuapp.com/api/v1/web/attendance-management/public-holidays/?length=${pagination.pageSize}&start=${start}`;
 			const response = await axios.get(Path);
 			if (response.status === 200) {
 				setData(response.data.data);

@@ -26,7 +26,7 @@ export default function DataTablePagination({ table }) {
                 <Button
                     variant="secondary"
                     size="sm"
-                    onClick={() => table.previousPage()}
+                    onClick={() => table.setPageIndex(pageIndex - 1)}
                     disabled={!table.getCanPreviousPage()}
                 >
                     Previous
@@ -34,13 +34,12 @@ export default function DataTablePagination({ table }) {
                 <Button
                     variant="secondary"
                     size="sm"
-                    onClick={() => table.nextPage()}
+                    onClick={() => table.setPageIndex(pageIndex + 1)}
                     disabled={!table.getCanNextPage()}
                 >
                     Next
                 </Button>
             </div>
-
         </div>
     );
 }
