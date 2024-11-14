@@ -49,6 +49,7 @@ const HolidaysListing = () => {
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
 
 	const fetchPublicHolidays = async () => {
+		console.log(pagination.pageIndex,'pagination.pageIndex')
 		try {
 			const Path = `https://secret-stream-29335.herokuapp.com/api/v1/web/attendance-management/public-holidays/?length=${pagination.pageSize}&start=${pagination.pageIndex}`;
 			const response = await axios.get(Path);
@@ -57,7 +58,7 @@ const HolidaysListing = () => {
 				setTotalRecords(response.data.recordsTotal);
 			}
 		} catch (error) {
-			console.error("Error fetching public holidays:", error);
+			console.log("Error fetching public holidays:", error);
 		}
 	};
 
@@ -96,10 +97,10 @@ const HolidaysListing = () => {
 		};
 
 		try {
-			const Path = `https://secret-stream-29335.herokuapp.com/api/v1/web/attendance-management/public-holidays`;
+			const Path = `https://secret-stream-29335.herokuapp.com/api/v1/web/attendance-management/public-holidays/`;
 			const response = await axios.post(Path, reqObj, {
 				headers: {
-					'Content-Type': 'text/plain'
+					'Authorization': 'Token 898513d2a7108d2c662a878720391aa00bc704db',
 				}
 			});
 			if (response.status === 200) {
@@ -109,7 +110,13 @@ const HolidaysListing = () => {
 				setIsDialogOpen(false);
 			}
 		} catch (error) {
-			console.error("Error adding public holiday:", error);
+			if (error.response) {
+				console.log("Response error:", error.response.data);
+			  } else if (error.request) {
+				console.log("Request error:", error.request);
+			  } else {
+				console.log("General error:", error.message);
+			  }
 		}
 	};
 
